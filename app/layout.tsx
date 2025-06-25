@@ -2,15 +2,13 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-//import { AppWrapper } from "@/components/app-wrapper"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "North Events - ESports Excellence en Tunisie",
-  description:
-    "Agence ESports leader en Tunisie. Organisation de tournois, événements gaming, streaming professionnel et coaching ESports.",
-  keywords: "ESports, Tunisie, Tournois, Gaming, Valorant, League of Legends, Streaming",
+  title: "North Events - Agence ESports #1 en Tunisie",
+  description: "Organisation de tournois ESports, événements gaming et production streaming en Tunisie",
 }
 
 export default function RootLayout({
@@ -19,12 +17,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr">
-      <head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" async></script>
-      </head>
+    <html lang="fr" suppressHydrationWarning>
       <body className={inter.className}>
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

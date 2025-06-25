@@ -74,7 +74,7 @@ export function Team() {
         twitch: "#",
         youtube: "#",
       },
-    },  
+    },
   ]
 
   const getSocialIcon = (platform: string) => {
@@ -93,16 +93,16 @@ export function Team() {
   }
 
   return (
-    <section id="team" className="py-20 bg-gray-50">
+    <section id="team" className="py-20 bg-muted/50 dark:bg-muted/20 transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-brand-primary/10 text-brand-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+          <div className="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
             <Trophy className="w-4 h-4 mr-2" />
             Notre Équipe
           </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Les Experts Derrière Vos Succès</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Les Experts Derrière Vos Succès</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Une équipe passionnée de professionnels ESports, chacun expert dans son domaine, unis par la même vision :
             faire de la Tunisie une référence gaming.
           </p>
@@ -113,7 +113,7 @@ export function Team() {
           {teamMembers.map((member, index) => (
             <Card
               key={index}
-              className="group overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg"
+              className="group overflow-hidden hover:shadow-2xl dark:hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg dark:shadow-xl bg-card"
             >
               <div className="relative">
                 {/* Profile Image */}
@@ -134,7 +134,7 @@ export function Team() {
                           <a
                             key={platform}
                             href={url}
-                            className="w-8 h-8 bg-white/20 backdrop-blur-sm hover:bg-brand-primary rounded-full flex items-center justify-center transition-colors duration-200"
+                            className="w-8 h-8 bg-white/20 backdrop-blur-sm hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-200"
                           >
                             <IconComponent className="w-4 h-4 text-white" />
                           </a>
@@ -146,7 +146,7 @@ export function Team() {
 
                 {/* Speciality Badge */}
                 <div className="absolute top-4 left-4">
-                  <Badge className="bg-brand-primary/90 text-white backdrop-blur-sm">
+                  <Badge className="bg-primary/90 text-primary-foreground backdrop-blur-sm">
                     <Star className="w-3 h-3 mr-1" />
                     {member.speciality}
                   </Badge>
@@ -156,16 +156,16 @@ export function Team() {
               <CardContent className="p-6">
                 {/* Basic Info */}
                 <div className="text-center mb-4">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-brand-primary font-medium">{member.role}</p>
+                  <h3 className="text-xl font-bold text-foreground mb-1">{member.name}</h3>
+                  <p className="text-primary font-medium">{member.role}</p>
                 </div>
 
                 {/* Bio */}
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">{member.bio}</p>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{member.bio}</p>
 
                 {/* Games */}
                 <div className="mb-4">
-                  <p className="text-xs font-medium text-gray-500 mb-2">JEUX SPÉCIALISÉS</p>
+                  <p className="text-xs font-medium text-muted-foreground mb-2">JEUX SPÉCIALISÉS</p>
                   <div className="flex flex-wrap gap-1">
                     {member.games.map((game, gameIndex) => (
                       <Badge key={gameIndex} variant="secondary" className="text-xs">
@@ -177,11 +177,11 @@ export function Team() {
 
                 {/* Achievements */}
                 <div className="mb-4">
-                  <p className="text-xs font-medium text-gray-500 mb-2">RÉALISATIONS</p>
+                  <p className="text-xs font-medium text-muted-foreground mb-2">RÉALISATIONS</p>
                   <ul className="space-y-1">
                     {member.achievements.slice(0, 2).map((achievement, achIndex) => (
-                      <li key={achIndex} className="text-xs text-gray-600 flex items-center">
-                        <Trophy className="w-3 h-3 text-brand-primary mr-1 flex-shrink-0" />
+                      <li key={achIndex} className="text-xs text-muted-foreground flex items-center">
+                        <Trophy className="w-3 h-3 text-primary mr-1 flex-shrink-0" />
                         {achievement}
                       </li>
                     ))}
@@ -192,7 +192,7 @@ export function Team() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="w-full border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white transition-colors duration-200"
+                  className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
                 >
                   Contacter {member.name.split(" ")[0]}
                 </Button>

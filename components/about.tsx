@@ -150,22 +150,25 @@ export function About() {
   }
 
   return (
-    <section id="about-section" className="py-20 bg-gray-50 overflow-hidden">
+    <section
+      id="about-section"
+      className="py-20 bg-muted/50 dark:bg-muted/20 overflow-hidden transition-colors duration-300"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <div
-            className={`inline-flex items-center bg-brand-primary/10 text-brand-primary px-4 py-2 rounded-full text-sm font-medium mb-6 transition-all duration-1000 ${isVisible ? "animate-fade-in" : "opacity-0"}`}
+            className={`inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 transition-all duration-1000 ${isVisible ? "animate-fade-in" : "opacity-0"}`}
           >
             <Heart className="w-4 h-4 mr-2" />À Propos de North Events
           </div>
           <h2
-            className={`text-3xl lg:text-4xl font-bold text-gray-900 mb-4 transition-all duration-1000 delay-200 ${isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"}`}
+            className={`text-3xl lg:text-4xl font-bold text-foreground mb-4 transition-all duration-1000 delay-200 ${isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"}`}
           >
             Pionniers de l'ESports en Tunisie
           </h2>
           <p
-            className={`text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-1000 delay-400 ${isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"}`}
+            className={`text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-1000 delay-400 ${isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"}`}
           >
             Découvrez l'histoire, la vision et les valeurs qui font de North Events le leader incontesté de l'ESports
             tunisien.
@@ -177,7 +180,7 @@ export function About() {
           className={`mb-20 transition-all duration-1000 delay-600 ${isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"}`}
         >
           <div className="relative">
-            <div className="overflow-hidden rounded-3xl shadow-2xl">
+            <div className="overflow-hidden rounded-3xl shadow-2xl dark:shadow-primary/10">
               <div
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -236,13 +239,13 @@ export function About() {
             {/* Carousel Controls */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-300 group"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-background/20 backdrop-blur-sm hover:bg-background/30 rounded-full flex items-center justify-center transition-all duration-300 group"
             >
               <ChevronLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-300 group"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-background/20 backdrop-blur-sm hover:bg-background/30 rounded-full flex items-center justify-center transition-all duration-300 group"
             >
               <ChevronRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
             </button>
@@ -267,13 +270,13 @@ export function About() {
           className={`mb-20 transition-all duration-1000 delay-800 ${isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"}`}
         >
           <div className="text-center mb-12">
-            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Notre Parcours</h3>
-            <p className="text-lg text-gray-600">Une évolution constante vers l'excellence ESports</p>
+            <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">Notre Parcours</h3>
+            <p className="text-lg text-muted-foreground">Une évolution constante vers l'excellence ESports</p>
           </div>
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-brand-primary to-brand-secondary rounded-full"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary to-secondary rounded-full"></div>
 
             <div className="space-y-12">
               {achievements.map((achievement, index) => (
@@ -282,17 +285,17 @@ export function About() {
                   className={`flex items-center ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} group`}
                 >
                   <div className={`w-1/2 ${index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"}`}>
-                    <Card className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg group-hover:scale-105">
+                    <Card className="p-6 hover:shadow-xl dark:hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg dark:shadow-xl group-hover:scale-105 bg-card">
                       <CardContent className="p-0">
-                        <Badge className="bg-brand-primary text-white mb-3">{achievement.year}</Badge>
-                        <h4 className="text-xl font-bold text-gray-900 mb-2">{achievement.title}</h4>
-                        <p className="text-gray-600">{achievement.description}</p>
+                        <Badge className="bg-primary text-primary-foreground mb-3">{achievement.year}</Badge>
+                        <h4 className="text-xl font-bold text-foreground mb-2">{achievement.title}</h4>
+                        <p className="text-muted-foreground">{achievement.description}</p>
                       </CardContent>
                     </Card>
                   </div>
 
                   {/* Timeline Node */}
-                  <div className="relative z-10 w-4 h-4 bg-brand-primary rounded-full border-4 border-white shadow-lg group-hover:scale-150 transition-transform duration-300"></div>
+                  <div className="relative z-10 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg group-hover:scale-150 transition-transform duration-300"></div>
 
                   <div className="w-1/2"></div>
                 </div>
@@ -306,8 +309,8 @@ export function About() {
           className={`mb-16 transition-all duration-1000 delay-1000 ${isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"}`}
         >
           <div className="text-center mb-12">
-            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">Nos Valeurs Fondamentales</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">Nos Valeurs Fondamentales</h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Ces principes guident chacune de nos actions et définissent notre approche unique de l'ESports.
             </p>
           </div>
@@ -318,12 +321,12 @@ export function About() {
               return (
                 <Card
                   key={index}
-                  className="text-center p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 border-0 shadow-lg group overflow-hidden relative"
+                  className="text-center p-8 hover:shadow-2xl dark:hover:shadow-primary/10 transition-all duration-500 transform hover:-translate-y-4 border-0 shadow-lg dark:shadow-xl group overflow-hidden relative bg-card"
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
                   {/* Animated Background */}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+                    className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-500`}
                   ></div>
 
                   <CardContent className="p-0 relative z-10">
@@ -332,10 +335,10 @@ export function About() {
                     >
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-primary transition-colors duration-300">
+                    <h4 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                       {value.title}
                     </h4>
-                    <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                    <p className="text-muted-foreground leading-relaxed">{value.description}</p>
                   </CardContent>
                 </Card>
               )
@@ -345,15 +348,15 @@ export function About() {
 
         {/* Enhanced Testimonial */}
         <div
-          className={`bg-white rounded-3xl p-12 shadow-xl border border-gray-100 relative overflow-hidden transition-all duration-1000 delay-1200 ${isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"}`}
+          className={`bg-card rounded-3xl p-12 shadow-xl dark:shadow-2xl border border-border relative overflow-hidden transition-all duration-1000 delay-1200 ${isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"}`}
         >
           {/* Animated Background Elements */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 rounded-full -translate-y-16 translate-x-16"></div>
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-brand-secondary/5 rounded-full translate-y-12 -translate-x-12"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16"></div>
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-secondary/5 rounded-full translate-y-12 -translate-x-12"></div>
 
           <div className="text-center max-w-4xl mx-auto relative z-10">
             <div className="mb-8">
-              <Quote className="w-16 h-16 text-brand-primary mx-auto mb-6 animate-pulse" />
+              <Quote className="w-16 h-16 text-primary mx-auto mb-6 animate-pulse" />
               <div className="flex justify-center space-x-1 mb-6">
                 {[...Array(5)].map((_, i) => (
                   <Award
@@ -365,18 +368,18 @@ export function About() {
               </div>
             </div>
 
-            <blockquote className="text-2xl lg:text-3xl font-medium text-gray-900 mb-8 leading-relaxed">
+            <blockquote className="text-2xl lg:text-3xl font-medium text-foreground mb-8 leading-relaxed">
               "North Events a organisé le meilleur tournoi Valorant de Tunisie. L'organisation était parfaite,
               l'ambiance électrisante et la production streaming de niveau international."
             </blockquote>
 
             <div className="flex items-center justify-center">
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
                   <Trophy className="w-8 h-8 text-white" />
                 </div>
-                <div className="font-semibold text-gray-900">Fares "ProGamer" Khalil</div>
-                <div className="text-brand-primary">Champion Valorant MENA, Team Falcon</div>
+                <div className="font-semibold text-foreground">Fares "ProGamer" Khalil</div>
+                <div className="text-primary">Champion Valorant MENA, Team Falcon</div>
               </div>
             </div>
           </div>
@@ -389,7 +392,7 @@ export function About() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-brand-primary hover:bg-brand-secondary text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 group"
+              className="bg-primary hover:bg-secondary text-primary-foreground font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 group"
             >
               <Play className="mr-2 w-5 h-5" />
               Voir Notre Histoire
@@ -399,7 +402,7 @@ export function About() {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 group"
+              className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-8 py-4 rounded-full transition-all duration-300 group"
             >
               <Users className="mr-2 w-5 h-5" />
               Rencontrer l'Équipe

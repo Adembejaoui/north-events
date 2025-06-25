@@ -62,16 +62,16 @@ export function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20 bg-muted/50 dark:bg-muted/20 transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-brand-primary/10 text-brand-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+          <div className="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
             <Mail className="w-4 h-4 mr-2" />
             Contactez-Nous
           </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Lancez Votre Projet ESports</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Lancez Votre Projet ESports</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Prêt à organiser votre tournoi ou événement gaming ? Contactez notre équipe d'experts ESports pour un devis
             personnalisé et gratuit.
           </p>
@@ -79,21 +79,21 @@ export function Contact() {
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <Card className="shadow-xl border-0">
+          <Card className="shadow-xl dark:shadow-2xl border-0 bg-card">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Demande de Devis Tournoi</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-6">Demande de Devis Tournoi</h3>
 
               {isSubmitted ? (
                 <div className="text-center py-12">
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold text-gray-900 mb-2">Message Envoyé !</h4>
-                  <p className="text-gray-600">Nous vous répondrons dans les plus brefs délais.</p>
+                  <h4 className="text-xl font-semibold text-foreground mb-2">Message Envoyé !</h4>
+                  <p className="text-muted-foreground">Nous vous répondrons dans les plus brefs délais.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <Label htmlFor="name" className="text-gray-700 font-medium">
+                      <Label htmlFor="name" className="text-foreground font-medium">
                         Nom Complet *
                       </Label>
                       <Input
@@ -102,12 +102,12 @@ export function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="mt-2 border-gray-300 focus:border-brand-primary focus:ring-brand-primary"
+                        className="mt-2 border-border focus:border-primary focus:ring-primary bg-background"
                         placeholder="Votre nom complet"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="email" className="text-gray-700 font-medium">
+                      <Label htmlFor="email" className="text-foreground font-medium">
                         Email *
                       </Label>
                       <Input
@@ -117,7 +117,7 @@ export function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="mt-2 border-gray-300 focus:border-brand-primary focus:ring-brand-primary"
+                        className="mt-2 border-border focus:border-primary focus:ring-primary bg-background"
                         placeholder="votre@email.com"
                       />
                     </div>
@@ -125,7 +125,7 @@ export function Contact() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <Label htmlFor="phone" className="text-gray-700 font-medium">
+                      <Label htmlFor="phone" className="text-foreground font-medium">
                         Téléphone
                       </Label>
                       <Input
@@ -133,12 +133,12 @@ export function Contact() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="mt-2 border-gray-300 focus:border-brand-primary focus:ring-brand-primary"
+                        className="mt-2 border-border focus:border-primary focus:ring-primary bg-background"
                         placeholder="+216 XX XXX XXX"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="eventType" className="text-gray-700 font-medium">
+                      <Label htmlFor="eventType" className="text-foreground font-medium">
                         Type d'Événement
                       </Label>
                       <Input
@@ -146,14 +146,14 @@ export function Contact() {
                         name="eventType"
                         value={formData.eventType}
                         onChange={handleChange}
-                        className="mt-2 border-gray-300 focus:border-brand-primary focus:ring-brand-primary"
+                        className="mt-2 border-border focus:border-primary focus:ring-primary bg-background"
                         placeholder="Valorant, LoL, FIFA, etc."
                       />
                     </div>
                   </div>
 
                   <div>
-                    <Label htmlFor="message" className="text-gray-700 font-medium">
+                    <Label htmlFor="message" className="text-foreground font-medium">
                       Décrivez Votre Projet *
                     </Label>
                     <Textarea
@@ -163,7 +163,7 @@ export function Contact() {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="mt-2 border-gray-300 focus:border-brand-primary focus:ring-brand-primary"
+                      className="mt-2 border-border focus:border-primary focus:ring-primary bg-background"
                       placeholder="Décrivez votre projet ESports : jeu, format de tournoi, nombre de participants, budget approximatif, besoins techniques (streaming, coaching, etc.)..."
                     />
                   </div>
@@ -171,7 +171,7 @@ export function Contact() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-secondary hover:to-brand-primary text-white font-semibold py-4 rounded-full transition-all duration-300 transform hover:scale-105 group"
+                    className="w-full bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-primary-foreground font-semibold py-4 rounded-full transition-all duration-300 transform hover:scale-105 group"
                   >
                     <Send className="mr-2 w-5 h-5" />
                     Envoyer ma Demande
@@ -185,8 +185,8 @@ export function Contact() {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Informations de Contact</h3>
-              <p className="text-lg text-gray-600 mb-8">
+              <h3 className="text-2xl font-bold text-foreground mb-6">Informations de Contact</h3>
+              <p className="text-lg text-muted-foreground mb-8">
                 Notre équipe est à votre disposition pour répondre à toutes vos questions et vous accompagner dans la
                 réalisation de votre événement.
               </p>
@@ -198,7 +198,7 @@ export function Contact() {
                 return (
                   <Card
                     key={index}
-                    className="p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border-0 shadow-md"
+                    className="p-6 hover:shadow-lg dark:hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-1 border-0 shadow-md dark:shadow-lg bg-card"
                   >
                     <CardContent className="p-0">
                       <div
@@ -206,9 +206,9 @@ export function Contact() {
                       >
                         <IconComponent className="w-6 h-6 text-white" />
                       </div>
-                      <h4 className="font-semibold text-gray-900 mb-2">{info.title}</h4>
+                      <h4 className="font-semibold text-foreground mb-2">{info.title}</h4>
                       {info.details.map((detail, detailIndex) => (
-                        <p key={detailIndex} className="text-gray-600 text-sm">
+                        <p key={detailIndex} className="text-muted-foreground text-sm">
                           {detail}
                         </p>
                       ))}
@@ -219,13 +219,13 @@ export function Contact() {
             </div>
 
             {/* Map Placeholder */}
-            <Card className="overflow-hidden shadow-lg border-0">
-              <div className="h-64 bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center">
-                <div className="text-center text-white">
+            <Card className="overflow-hidden shadow-lg dark:shadow-xl border-0 bg-card">
+              <div className="h-64 bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                <div className="text-center text-primary-foreground">
                   <MapPin className="w-12 h-12 mx-auto mb-4" />
                   <h4 className="text-xl font-semibold mb-2">Notre Bureau</h4>
-                  <p className="text-white/90">123 Avenue Habib Bourguiba</p>
-                  <p className="text-white/90">Tunis 1000, Tunisie</p>
+                  <p className="text-primary-foreground/90">123 Avenue Habib Bourguiba</p>
+                  <p className="text-primary-foreground/90">Tunis 1000, Tunisie</p>
                 </div>
               </div>
             </Card>
