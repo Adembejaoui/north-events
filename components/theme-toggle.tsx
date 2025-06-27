@@ -14,7 +14,7 @@ export function ThemeToggle() {
   }, [])
 
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light")
+    setTheme(theme === "dark" ? "light" : "dark")
   }
 
   // Show a neutral state during SSR and initial hydration
